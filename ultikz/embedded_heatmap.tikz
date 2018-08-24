@@ -1,0 +1,31 @@
+\begin{tikzpicture}[trim axis left, trim axis right, baseline]
+    \begin{axis}[
+        axis on top,
+        grid=major,
+        % the last decimal number is the width of the bitmap in pixels that allows for the figure to be scaled perfectly
+        width=0.9*4*0.2000\textwidth,
+        height=0.9*4*0.1125\textwidth,
+        scale only axis,
+        enlargelimits=false,
+        xmode=log,
+        xmin=1e-04,
+        xmax=1e-01,
+        ymode=log,
+        ymin=1e-03,
+        ymax=1e03,
+        yminorticks=true,
+        xminorticks=true,
+        xlabel={$h$},
+        % xticklabels={,,}, %hides y ticks
+        ylabel={$\varepsilon$},
+        ytick distance=10^1,
+        % title={RBF-FD approximation: GA},
+        ]
+
+      \addplot graphics[xmin=1e-04, ymin=1e-03, xmax=1e-01, ymax=1e03]{ultikz/bitmap_heatmap.png}; %adds bitmap
+
+      \addplot[black, semithick, domain=1e-04:1e-01, samples=100,]
+        {0.0015/x} [every node/.style={yshift=8pt},sloped] %adds a line
+              node[pos=0.75] {$\varepsilon^*(h)$}; % adds a sloped label on the line
+    \end{axis}
+  \end{tikzpicture}

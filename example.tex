@@ -1,0 +1,102 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb,amsmath}
+
+
+% Tikz packages
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\pgfplotsset{compat=1.15}
+
+% Line thickness. One might want to multiply these values by 1.5 to make sure they are not too thin for printing!
+\tikzset{
+    ultra thin/.style= {line width=0.1pt},
+    very thin/.style=  {line width=0.2pt},
+    thin/.style=       {line width=0.4pt},% thin is the default line
+    semithick/.style=  {line width=0.6pt},
+    thick/.style=      {line width=0.8pt},
+    very thick/.style= {line width=1.2pt},
+    ultra thick/.style={line width=1.6pt}
+}
+\tikzset{every picture/.style={thin}} %or use: "`line width=1 pt,"<-- note:if you write line width, you must use a value with unit
+\pgfplotsset{every axis/.append style={thin, grid style={thin,}, tick style={very thin,}}}
+
+% Colors
+\definecolor{ultikzblue}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{ultikzred}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{ultikzyellow}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{ultikzpurple}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{ultikzgreen}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{ultikzburgundy}{rgb}{0.63500,0.07800,0.18400}%
+
+\title{Ultimate TikZ Figures for Publications}
+\author{Slobodan Milovanovi\'c}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%
+%
+%
+\section{Line Plots}
+Here is an example of a standard line plot with a legend.
+%
+\begin{figure}[H]
+\centering
+\input{ultikz/lineplots_basic.tikz}
+\caption{\emph{Examples of GAs with different shape parameter values and PHSs of different degrees.}}
+\label{fig:RBF}
+\end{figure}
+%
+%
+\subsection{Logarithmic Line Plots}
+This is an example combining two logarithmic line plots with different mark symbols.
+\begin{figure}[H]
+\centering
+\input{ultikz/lineplot_log1.tikz}
+\input{ultikz/lineplot_log2.tikz}
+\caption{\emph{Convergence and computational performance.}}
+\label{fig:log}
+\end{figure}
+%
+\subsection{Custom Ticks}
+%
+\begin{figure}[H]
+\centering
+\input{ultikz/lineplots_customticks.tikz}
+\caption{\emph{Examples of GAs with different shape parameter values and PHSs of different degrees.}}
+\label{fig:payoff}
+\end{figure}
+%
+%
+%
+\newpage
+\section{Scatter Plots}
+Here is an example of a scatter plot.
+\begin{figure}[H]
+\centering
+\input{ultikz/scatterplot_basic.tikz}
+\caption{\emph{A node layout.}}
+\label{fig:stencils}
+\end{figure}
+
+\newpage
+\section{Embedded Bitmap}
+Color plots are usually not so easy to make in tikz, but they can be easily embedded in TikZ axes as bitmap images. 
+\begin{figure}[H]
+\centering
+\input{ultikz/embedded_heatmap.tikz}
+\input{ultikz/embedded_colorbar.tikz}
+\caption{\emph{The maximum absolute error $\Delta u_{\max}$ measured in the subdomain $\hat\Omega=[\frac{1}{3}K,\frac{5}{3}K]$ around the strike price $K$, as a function of $h$ and $\varepsilon$, for a one-dimensional European call option priced on an equidistant Cartesian grid with RBF-FD stencil size $n=3$. The black line shows the appropriate choice for the shape parameter. The RBF-FD approximation is performed using GA basis functions.}}
+\label{fig:contour1}
+\end{figure}
+
+
+\end{document}  
