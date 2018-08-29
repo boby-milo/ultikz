@@ -1,0 +1,76 @@
+\pgfplotsset{
+    overwrite last x tick label/.style={
+        every x tick label/.append style={alias=lasttick},
+        extra description/.append code={
+            \fill [white] (lasttick.north west) ++(0pt,-\pgflinewidth) rectangle (lasttick.south east);
+            \node [anchor=base] at (lasttick.base) {#1};}
+    },
+    overwrite last x tick label/.default={[8--10]} % manually include the last value
+ }
+
+\begin{tikzpicture}[trim axis left, trim axis right, baseline]
+\begin{axis}[
+    width=0.75\textwidth,
+    height=0.75\textwidth,
+    at={(0\textwidth,0\textwidth)},
+    xmin=0,
+    xmax=10,
+    ybar interval,
+    xticklabel=[\pgfmathprintnumber\tick--\pgfmathprintnumber\nexttick),
+    overwrite last x tick label
+]
+    \addplot+ [hist={bins=5}, fill=orange!75, draw=orange!50!black] %specify number of bins and color
+        table [row sep=\\, y index=0]{ %paste your data here
+            1\\
+            2\\
+            0\\
+            0\\
+            3\\
+            2\\
+            3\\
+            3\\
+            3\\
+            3\\
+            4\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            5\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            7\\
+            0\\
+            10\\
+            7\\
+            10\\
+            9\\
+            8\\
+            7\\
+            3\\
+            2\\
+            1\\
+            4\\
+    };
+\end{axis}
+\end{tikzpicture}
