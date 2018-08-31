@@ -7,12 +7,13 @@
 								% TeX will automatically convert eps --> pdf in pdflatex		
 \usepackage{amssymb,amsmath}
 
+\usepackage{float}
 
 % Tikz packages
-\usepackage{float}
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{tikzsymbols}
+\usepgfplotslibrary{fillbetween}
 \pgfplotsset{compat=1.15}
 
 % Line thickness. One might want to multiply these values by 1.5 to make sure they are not too thin for printing!
@@ -50,7 +51,7 @@ Here is an example of a standard line plot with a legend.
 %
 \begin{figure}[H]
 \centering
-\input{ultikz/lineplots_basic.tikz}
+\input{ultikz/lineplot_basic.tikz}
 \caption{\emph{Examples of GAs with different shape parameter values and PHSs of different degrees.}}
 \label{fig:RBF}
 \end{figure}
@@ -70,9 +71,17 @@ This is an example combining two logarithmic line plots with different mark symb
 %
 \begin{figure}[H]
 \centering
-\input{ultikz/lineplots_customticks.tikz}
+\input{ultikz/lineplot_customticks.tikz}
 \caption{\emph{Examples of GAs with different shape parameter values and PHSs of different degrees.}}
 \label{fig:payoff}
+\end{figure}
+%
+\subsection{Ribbon Plots}
+\begin{figure}[H]
+\centering
+\input{ultikz/lineplot_ribbon.tikz}
+\caption{\emph{An example of a ribbon plot.}}
+\label{fig:ribbon}
 \end{figure}
 %
 %
